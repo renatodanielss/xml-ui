@@ -1,0 +1,336 @@
+@import "./fonts";
+@import "./colors";
+@import "./utils";
+
+button {
+	outline: none;
+}
+
+.button {
+	padding: 12px 20px;
+	border: 0;
+	border-radius: 4px;
+  gap: 10px;
+	font-family: $font-roboto;
+	position: relative;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: 0.3s ease all;
+  cursor: pointer;
+
+  .bg-animated{
+    left: -5%;
+    width: 0;
+    height: 100%;
+    z-index: 0;
+    transform: skewX(-10deg);
+    transition: 0.3s ease-out all;
+    position: absolute;
+    cursor: pointer;
+
+    &.white{
+      background-color: $white;
+    }
+
+    &.primary{
+      background-color: $primary;
+    }
+
+    &.secondary {
+      background-color: $secondary;
+    }
+
+    &.tertiary {
+      background-color: $tertiary;
+    }
+
+    &.gold{
+      background-color: $gold;
+    }
+  }
+
+  &:hover{
+		.bg-animated{
+      width: 110%;
+		}
+	}
+
+  i, mat-icon{
+    z-index: 1;
+    transition-property: color;
+    position: relative;
+
+    svg{
+      transition: .3s ease;
+      transition-property: fill, stroke;
+    }
+  }
+
+  span{
+    z-index: 1;
+  }
+
+	&.small {
+		height: 25px;
+    min-height: 25px;
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	&.medium {
+    height: 35px;
+    min-height: 35px;
+    font-size: 16px;
+		line-height: 18px;
+	}
+
+	&.big {
+		height: 45px;
+    min-height: 45px;
+		font-size: 20px;
+		line-height: 23px;
+  }
+
+  &:disabled, &.disabled {
+    background: $dark-grey;
+    color: $black;
+  }
+
+  &.primary {
+    border: 1px solid $primary;
+    background: $primary;
+    color: $white;
+
+    i, svg, mat-icon{
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover, &:active{
+      border-color: $primary;
+      color: $primary;
+
+      i, svg, mat-icon{
+        color: $primary;
+        fill: $primary;
+      }
+    }
+  }
+
+  &.tertiary {
+    border: 1px solid $tertiary;
+    background: $tertiary;
+    color: $white;
+
+    i, svg, mat-icon{
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover, &:active{
+      border-color: $tertiary;
+      color: $tertiary;
+
+      i, svg, mat-icon{
+        color: $tertiary;
+        fill: $tertiary;
+      }
+    }
+  }
+
+  &.blue {
+    border: 1px solid $blue;
+    background: $blue;
+    color: $white;
+
+    i, svg, mat-icon, svg-icon{
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover, &:active{
+      border-color: $blue;
+      color: $blue;
+
+      i, svg, mat-icon, svg-icon{
+        color: $blue;
+        fill: $blue;
+      }
+    }
+  }
+
+  &.red {
+    border: 1px solid $error;
+    background: $error;
+    color: $white;
+
+    i, svg, mat-icon, svg-icon{
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover, &:active{
+      border-color: $error;
+      color: $error;
+
+      i, svg, mat-icon, svg-icon{
+        color: $error;
+        fill: $error;
+      }
+    }
+  }
+
+  &.grey {
+    border: 1px solid $smoke;
+    background: $smoke;
+    color: $white;
+
+    i, svg, mat-icon, svg-icon{
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover, &:active{
+      border-color: $gold;
+    }
+  }
+
+  &.white {
+    border: 1px solid $primary;
+    background: $white;
+    color: $primary;
+    font-weight: $font-weight-bold;
+
+    i, svg, mat-icon, svg-icon{
+      color: $primary;
+      fill: $primary;
+      z-index: 2;
+
+      path{
+        fill: $primary;
+      }
+    }
+
+    &:hover, &:active{
+      border-color: $primary;
+      color: $white;
+
+      i, svg, mat-icon, svg-icon{
+        color: $white;
+        fill: $white;
+
+        path{
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  &.white-without-border {
+    border: 1px solid transparent;
+    background: $white;
+    color: $primary;
+
+    i, svg, mat-icon, svg-icon{
+      color: $primary;
+      fill: $primary;
+      z-index: 2;
+
+      path{
+        fill: $primary;
+      }
+    }
+
+    &:hover, &:active{
+      border-color: $primary;
+      color: $white;
+
+      i, svg, mat-icon, svg-icon{
+        color: $white;
+        fill: $white;
+
+        path{
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  &.white-with-tertiary {
+    border: 1px solid $white;
+    background: $white;
+    color: $dark-grey;
+
+    &.white-grey-border{
+      border-color: $smoke;
+    }
+
+    i, svg, mat-icon{
+      color: $tertiary;
+      fill: $tertiary;
+    }
+
+    &:hover, &:active{
+      border-color: $white;
+      color: $white;
+
+      i, svg, mat-icon{
+        color: $white;
+        fill: $white;
+      }
+    }
+  }
+
+  &.white-with-secondary {
+    border: 1px solid $white;
+    background: $white;
+    color: $secondary;
+
+    i, svg, mat-icon{
+      color: $secondary;
+      fill: $secondary;
+    }
+
+    &:hover, &:active{
+      border-color: $white;
+      color: $white;
+
+      i, svg, mat-icon{
+        color: $white;
+        fill: $white;
+      }
+    }
+  }
+
+  &.transparent {
+    border: 1px solid transparent;
+    background: transparent;
+    color: $dark-grey;
+
+    i, svg, mat-icon{
+      color: $dark-grey;
+      fill: $dark-grey;
+    }
+
+    &:hover, &:active{
+      border-color: $light-smoke-2;
+      background: $light-smoke-2;
+      color: $dark-grey;
+
+      i, svg, mat-icon{
+        color: $dark-grey;
+        fill: $dark-grey;
+      }
+    }
+  }
+
+  &:disabled, &.disabled{
+    background: $light-smoke-2;
+    border-color: $light-smoke-2;
+    color: $dark-grey;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

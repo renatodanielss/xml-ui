@@ -1,0 +1,25 @@
+<modal #alertModal>
+  <div *ngIf="data" class="alert-modal">
+    <div class="alert-header">
+      <h3 class="title" *ngIf="data.title" [innerHTML]="data.title"></h3>
+
+      <h3 class="title" *ngIf="!data.title">
+        {{ 'General.Alert' | translate }}
+      </h3>
+
+      <mat-icon class="close" (click)="alertModal.close()">cancel</mat-icon>
+    </div>
+
+    <div class="alert-body">
+      <p class="description" *ngIf="data.description" [innerHTML]="data.description"></p>
+    </div>
+
+    <div class="alert-footer">
+      <button class="button big" [ngClass]="button.class" *ngFor="let button of data.buttons; index as i" (click)="onOperationClick(i)">
+        <span>{{ button.label }}</span>
+
+        <div class="bg-animated" [ngClass]="button.classAnimate"></div>
+      </button>
+    </div>
+  </div>
+</modal>

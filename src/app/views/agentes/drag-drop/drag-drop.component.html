@@ -1,0 +1,43 @@
+<div class="grid" cdkDropListGroup>
+  <div cdkDropList [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
+  </div>
+
+  <div cdkDropList class="drop-list" *ngFor="let item of items; let i = index;"
+    [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
+    <div cdkDrag class="item flex-column" (cdkDragMoved)="dragMoved($event);">
+      <div class="header flex-row align-start justify-between mb-12">
+        <span class="number font-18 font-weight-bold text-tertiary mr-24">
+          {{ i + 1 }}
+        </span>
+
+        <figure class="flex-row">
+          <img *ngIf="item.image" [src]="item.image" />
+          <img *ngIf="!item.image" src="assets/images/common/company-no-image.png" alt="Company image {{i}}" />
+        </figure>
+
+        <svg-icon class="ml-24" src="assets/svg/drag-indicator.svg"></svg-icon>
+      </div>
+
+      <h4 class="name font-18 text-primary font-weight-normal mb-12">
+        {{ item.name }}
+      </h4>
+
+      <p *ngIf="item.hasOwnProperty('city')">
+        {{ item.city }} - {{ item.state }}
+      </p>
+
+      <p *ngIf="item.hasOwnProperty('inscriptionEnd') && item.inscriptionEnd">
+        {{ 'ConsultantPageSetup.Closure' | translate }}: {{ item.inscriptionEnd | date:'dd/MM/yyyy' }}
+      </p>
+
+      <label class="form-field-checkbox" *ngIf="item.hasOwnProperty('visible')">
+        <input type="checkbox" [checked]="item.visible" (change)="onChangeCheckbox(item)" />
+        <span class="design"></span>
+
+        <span class="text font-weight-normal font-open-sans">
+          {{ 'ConsultantPageSetup.Visible' | translate }}
+        </span>
+      </label>
+    </div>
+  </div>
+</div>

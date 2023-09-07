@@ -1,0 +1,5 @@
+<div class="breadcrumbs flex-row align-center" *ngIf="breadcrumbs">
+  <a class="breadcrumb" [ngClass]="class" [routerLink]="'/' + breadcrumb.url" [queryParams]="breadcrumb.queryParams" *ngFor="let breadcrumb of breadcrumbs">
+    {{ breadcrumb.title | translate }}
+  </a>
+</div>

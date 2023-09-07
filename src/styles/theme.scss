@@ -1,0 +1,129 @@
+@use '~@angular/material' as mat;
+@import "./colors";
+
+\:host{
+  --primary: $primary;
+  --onPrimary: $white;
+  --secondary: $secondary;
+  --onSecondary: $dark-grey;
+  --accent: $tertiary;
+}
+
+$variables: (
+  --primary: var(--primary),
+  --onPrimary: var(--onPrimary),
+  --secondary: var(--secondary),
+  --onSecondary: var(--onSecondary),
+  --accent: var(--accent),
+);
+
+$mat-theme-primary: (
+  50 : #e6f3f8,
+  100 : #c2e1ee,
+  200 : #99cee2,
+  300 : #70bad6,
+  400 : #51abce,
+  500 : #329cc5,
+  600 : #2d94bf,
+  700 : #268ab8,
+  800 : #1f80b0,
+  900 : #136ea3,
+  A100 : #d5eeff,
+  A200 : #a2daff,
+  A400 : #6fc6ff,
+  A700 : #56bcff,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+$mat-theme-secondary: (
+  50 : #efe3f2,
+  100 : #d6b9e0,
+  200 : #bb8acb,
+  300 : #9f5bb6,
+  400 : #8b38a6,
+  500 : #761596,
+  600 : #6e128e,
+  700 : #630f83,
+  800 : #590c79,
+  900 : #460668,
+  A100 : #d798ff,
+  A200 : #c365ff,
+  A400 : #af32ff,
+  A700 : #a519ff,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+$mat-theme-accent: (
+  50 : #fdeaf3,
+    100 : #fac9e2,
+    200 : #f7a6ce,
+    300 : #f382ba,
+    400 : #f167ac,
+    500 : #ee4c9d,
+    600 : #ec4595,
+    700 : #e93c8b,
+    800 : #e73381,
+    900 : #e2246f,
+    A100 : #ffffff,
+    A200 : #ffe9f1,
+    A400 : #ffb6d1,
+    A700 : #ff9cc1,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+));
+
+$theme-transparent: var(--primary);
+
+@import "functions";
+
+@include mat.core();
+
+$ats-app-primary: mat.define-palette($mat-theme-primary);
+$ats-app-accent:  mat.define-palette($mat-theme-secondary);
+$ats-app-warn:    mat.define-palette(mat.$red-palette);
+$ats-app-theme: mat.define-light-theme($ats-app-primary, $ats-app-accent, $ats-app-warn);
+
+@include mat.all-component-themes($ats-app-theme);

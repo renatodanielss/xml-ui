@@ -1,0 +1,82 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/utils";
+
+.steps{
+  gap: 20px;
+
+  .step{
+    color: $secondary;
+    position: relative;
+    cursor: pointer;
+
+    .position{
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      line-height: 14px;
+      border-radius: 50%;
+      border: 1px solid $smoke;
+      position: relative;
+    }
+
+    h5{
+      font-size: 14px;
+      line-height: 14px;
+      text-align: center;
+    }
+
+    &.active ~ .step{
+      color: $smoke;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &.active{
+      color: $secondary !important;
+      pointer-events: initial !important;
+
+      .position{
+        width: 30px;
+        height: 30px;
+        border: none;
+        color: $white;
+        background: $secondary;
+      }
+    }
+
+    &.accept-click{
+      pointer-events: initial !important;
+      cursor: pointer !important;
+      transition: .3s ease;
+
+      &:hover{
+        color: $secondary !important;
+      }
+    }
+
+    &.block{
+      pointer-events: none !important;
+      cursor: not-allowed !important;
+
+      .position{
+        &::after{
+          content: "lock";
+          font-family: 'Material Icons';
+          width: 24px;
+          height: 24px;
+          z-index: 4;
+          left: 60%;
+          bottom: 35%;
+          border-radius: 50%;
+          color: $white;
+          background: $smoke;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+        }
+      }
+    }
+  }
+}

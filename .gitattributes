@@ -1,0 +1,43 @@
+# Detect text files, ensure they use LF.
+*.properties	eol=lf
+*.xml			eol=lf
+*.MF			eol=lf
+*.html			eol=lf diff=html
+*.js 			eol=lf
+*.css 			eol=lf
+*.java			eol=lf diff=java
+*.md			eol=lf
+*.project		eol=lf
+*.classpath		eol=lf
+*.txt 			eol=lf
+*.log			eol=lf
+*.sql 			eol=lf
+
+# Define binary file attributes. Do not treat them as text.
+*.class 		-text
+*.war			-text
+*.jar			-text
+*.svg			-text
+*.gif			-text
+*.swf 			-text
+*.png			-text
+*.jpg			-text
+*.ico			-text
+*.woff 			-text
+*.ttf 			-text
+*.eot 			-text
+*.woff2 		-text
+*.db 			-text
+*.ai 			-text
+*.prefs 		-text
+*.jsdtscope 	-text
+*.container 	-text
+*.name 			-text
+*.component 	-text
+*.2				-text
+*.3				-text
+*.4				-text
+*.old 			-text
+*.versionsBackup -text
+*.mwb 			-text
+*.bak 			-text

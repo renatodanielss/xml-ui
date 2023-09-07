@@ -1,0 +1,79 @@
+
+@import "./fonts";
+@import "./colors";
+@import "./utils";
+
+input, select, mat-select, textarea {
+  width: 100%;
+  padding: 11px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid $smoke;
+  font-family: $font-open-sans;
+  color: $dark-grey;
+  background: $white;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 16px;
+    color: $smoke;
+    font-family: $font-open-sans;
+  }
+
+  &.has-error{
+    border-color: $error;
+    color: $error;
+  }
+
+  &:disabled, &.disabled, &[aria-disabled="true"]{
+    background: $light-smoke-2;
+    color: $white;
+  }
+}
+
+.hint{
+  font-size: 14px;
+  line-height: 16px;
+  color: $smoke;
+  display: block;
+
+  &.error{
+    color: $error;
+  }
+}
+
+label{
+  display: block;
+}
+
+.select-theme{
+  font-family: $font-open-sans;
+
+  mat-option{
+    font-family: $font-open-sans;
+
+    &:hover{
+      color: $primary !important;
+    }
+
+    &.already-added {
+      text-decoration: line-through;
+      color: $smoke !important;
+      cursor: not-allowed !important;
+      pointer-events: none;
+    }
+  }
+
+  .mat-selected{
+    background: $white !important;
+    color: $primary !important;
+    font-weight: $font-weight-bold !important;
+  }
+}
+
+.mat-autocomplete-panel{
+  b{
+    color: $primary;
+  }
+}

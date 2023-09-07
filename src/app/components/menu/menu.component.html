@@ -1,0 +1,13 @@
+<section class="menu pt-44 pb-44 flex-column">
+  <ul>
+    <li class="mb-8" *ngFor="let nav of navigations">
+      <a class="flex-row align-center justify-start" [routerLink]="'/' + nav.url" routerLinkActive="active">
+        <mat-icon class="mr-8">{{nav.icon}}</mat-icon>
+
+        <span>
+          {{ nav.title | translate }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</section>

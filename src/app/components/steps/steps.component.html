@@ -1,0 +1,19 @@
+<div *ngIf='steps' class="steps flex-row align-center">
+  <ng-container *ngFor="let step of steps; let i = index;">
+    <a *ngIf="step.url" [routerLink]="'/' + step.url" routerLinkActive="active" [queryParams]="step.queryParams" [ngClass]="{ 'active': step.active, 'block': step.block }" class="step flex-column align-center">
+      <span class="position flex-row align-center justify-center font-weight-bold mb-8">{{i + 1}}</span>
+
+      <h5 class="font-weight-bold">
+        {{step.title}}
+      </h5>
+    </a>
+
+    <a *ngIf="!step.url" (click)="select(step.id)" [ngClass]="{ 'active': step.active, 'block': step.block, 'accept-click': step.acceptClick }" class="step flex-column align-center">
+      <span class="position flex-row align-center justify-center font-weight-bold mb-8">{{i + 1}}</span>
+
+      <h5 class="font-weight-bold">
+        {{step.title}}
+      </h5>
+    </a>
+  </ng-container>
+</div>
